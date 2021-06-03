@@ -1,0 +1,634 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/1/2021 6:25:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DANIL0110"
+  DTS:CreatorName="DANIL0110\Danil"
+  DTS:DTSID="{07A97893-7271-4EC6-9D1B-D2D22169974F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{F586FFD9-2440-412D-9806-8ED8695B5771}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Диспетчер соединений с неструктурированными файлами]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C2936F03-F6B0-4F35-A98D-CB5461DB3AB5}"
+      DTS:ObjectName="Диспетчер соединений с неструктурированными файлами">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="8192"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1251"
+          DTS:ConnectionString="C:\Users\Danil\source\repos\ETL Weather\weather.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{F0A09E00-9A8E-4696-A135-74EA16789E47}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Temperature"
+              DTS:DTSID="{FC092DD6-EE94-4858-AE06-F1DBCCA8115F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DewPoint"
+              DTS:DTSID="{F64AE3C3-958D-4CC8-804D-1C3E9CA981D7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Humidity"
+              DTS:DTSID="{677AE14E-5219-4B81-AA7F-52BAE3B63D90}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SeaLvlPressure"
+              DTS:DTSID="{5EFB835B-385A-4FD0-989B-A7F5E5B03DD1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Visibility"
+              DTS:DTSID="{3D1D8BC0-B4B1-469B-9BD5-37BDFF3DF449}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Wind"
+              DTS:DTSID="{23092C73-C18C-44BA-AC63-A9143AD1F630}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Задача потока данных"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Задача потока данных"
+      DTS:DTSID="{4E58A476-DBFE-479F-B52D-33B67B5EC9B1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Задача потока данных"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Задача потока данных\New CSV output"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Назначение &quot;Неструктурированный файл&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;1"
+              description="Назначение &quot;Неструктурированный файл&quot;"
+              localeId="8192"
+              name="New CSV output"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Указывает, следует ли перезаписывать данные в целевой файл или добавлять их в его конец."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Задает текст, который записывается в целевой файл перед записью любых данных."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="Если ограничитель текста включен, указывает, будут ли добавляться escape-символы для ограничителя в данных, записываемых в конечный файл."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Задача потока данных\New CSV output.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Диспетчер соединений с неструктурированными файлами]"
+                  connectionManagerRefId="Package.ConnectionManagers[Диспетчер соединений с неструктурированными файлами]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;]"
+                  hasSideEffects="true"
+                  name="Вход назначения &quot;Неструктурированный файл&quot;">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].Columns[Date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[Date]"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].Columns[Temperature]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Temperature"
+                      externalMetadataColumnId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[Temperature]"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Temperature]" />
+                    <inputColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].Columns[DewPoint]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="DewPoint"
+                      externalMetadataColumnId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[DewPoint]"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DewPoint]" />
+                    <inputColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].Columns[Humidity]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Humidity"
+                      externalMetadataColumnId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[Humidity]"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Humidity]" />
+                    <inputColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].Columns[SeaLvlPressure]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="SeaLvlPressure"
+                      externalMetadataColumnId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[SeaLvlPressure]"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[SeaLvlPressure]" />
+                    <inputColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].Columns[Visibility]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Visibility"
+                      externalMetadataColumnId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[Visibility]"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Visibility]" />
+                    <inputColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].Columns[Wind]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Wind"
+                      externalMetadataColumnId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[Wind]"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Wind]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[Date]"
+                      dataType="wstr"
+                      length="10"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[Temperature]"
+                      dataType="wstr"
+                      length="8"
+                      name="Temperature" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[DewPoint]"
+                      dataType="wstr"
+                      length="8"
+                      name="DewPoint" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[Humidity]"
+                      dataType="wstr"
+                      length="8"
+                      name="Humidity" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[SeaLvlPressure]"
+                      dataType="wstr"
+                      length="8"
+                      name="SeaLvlPressure" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[Visibility]"
+                      dataType="wstr"
+                      length="8"
+                      name="Visibility" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;].ExternalColumns[Wind]"
+                      dataType="wstr"
+                      length="8"
+                      name="Wind" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Задача потока данных\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
+              description="Источник &quot;OLE DB&quot;"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowset">[dbo].[austin_weather]</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Команда SQL для выполнения."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Переменная, содержащая команду SQL для выполнения."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает используемый режим доступа к базе данных."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Сопоставления между параметрами в команде SQL и переменными."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Задача потока данных\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{DC3505A1-8917-420B-821D-3CC737F62B7B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DANIL0110.weather_db]"
+                  description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;]"
+                  name="Выход источника &quot;OLE DB&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Date]"
+                      length="10"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Temperature]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[TempAvgF]"
+                      length="8"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Temperature]"
+                      name="Temperature"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DewPoint]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DewPointAvgF]"
+                      length="8"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DewPoint]"
+                      name="DewPoint"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Humidity]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[HumidityAvgPercent]"
+                      length="8"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Humidity]"
+                      name="Humidity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[SeaLvlPressure]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[SeaLevelPressureAvgInches]"
+                      length="8"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[SeaLvlPressure]"
+                      name="SeaLvlPressure"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Visibility]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[VisibilityAvgMiles]"
+                      length="8"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Visibility]"
+                      name="Visibility"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Wind]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[WindAvgMPH]"
+                      length="8"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Wind]"
+                      name="Wind"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Date]"
+                      dataType="wstr"
+                      length="10"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[TempHighF]"
+                      dataType="wstr"
+                      length="4"
+                      name="TempHighF" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[TempAvgF]"
+                      dataType="wstr"
+                      length="8"
+                      name="TempAvgF" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[TempLowF]"
+                      dataType="wstr"
+                      length="8"
+                      name="TempLowF" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DewPointHighF]"
+                      dataType="wstr"
+                      length="8"
+                      name="DewPointHighF" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DewPointAvgF]"
+                      dataType="wstr"
+                      length="8"
+                      name="DewPointAvgF" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DewPointLowF]"
+                      dataType="wstr"
+                      length="8"
+                      name="DewPointLowF" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[HumidityHighPercent]"
+                      dataType="wstr"
+                      length="8"
+                      name="HumidityHighPercent" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[HumidityAvgPercent]"
+                      dataType="wstr"
+                      length="8"
+                      name="HumidityAvgPercent" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[HumidityLowPercent]"
+                      dataType="wstr"
+                      length="8"
+                      name="HumidityLowPercent" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[SeaLevelPressureHighInches]"
+                      dataType="wstr"
+                      length="8"
+                      name="SeaLevelPressureHighInches" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[SeaLevelPressureAvgInches]"
+                      dataType="wstr"
+                      length="8"
+                      name="SeaLevelPressureAvgInches" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[SeaLevelPressureLowInches]"
+                      dataType="wstr"
+                      length="8"
+                      name="SeaLevelPressureLowInches" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[VisibilityHighMiles]"
+                      dataType="wstr"
+                      length="8"
+                      name="VisibilityHighMiles" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[VisibilityAvgMiles]"
+                      dataType="wstr"
+                      length="8"
+                      name="VisibilityAvgMiles" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[VisibilityLowMiles]"
+                      dataType="wstr"
+                      length="8"
+                      name="VisibilityLowMiles" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[WindHighMPH]"
+                      dataType="wstr"
+                      length="8"
+                      name="WindHighMPH" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[WindAvgMPH]"
+                      dataType="wstr"
+                      length="8"
+                      name="WindAvgMPH" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[WindGustMPH]"
+                      dataType="wstr"
+                      length="8"
+                      name="WindGustMPH" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[PrecipitationSumInches]"
+                      dataType="wstr"
+                      length="8"
+                      name="PrecipitationSumInches" />
+                    <externalMetadataColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Events]"
+                      dataType="wstr"
+                      length="100"
+                      name="Events" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;]"
+                  isErrorOut="true"
+                  name="Вывод ошибок источника &quot;OLE DB&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Date]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[TempAvgF]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[TempAvgF]"
+                      name="TempAvgF" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DewPointAvgF]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DewPointAvgF]"
+                      name="DewPointAvgF" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[HumidityAvgPercent]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[HumidityAvgPercent]"
+                      name="HumidityAvgPercent" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[SeaLevelPressureAvgInches]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[SeaLevelPressureAvgInches]"
+                      name="SeaLevelPressureAvgInches" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[VisibilityAvgMiles]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[VisibilityAvgMiles]"
+                      name="VisibilityAvgMiles" />
+                    <outputColumn
+                      refId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[WindAvgMPH]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Задача потока данных\OLE DB Source.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[WindAvgMPH]"
+                      name="WindAvgMPH" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Задача потока данных.Paths[Выход источника &quot;OLE DB&quot;]"
+              endId="Package\Задача потока данных\New CSV output.Inputs[Вход назначения &quot;Неструктурированный файл&quot;]"
+              name="Выход источника &quot;OLE DB&quot;"
+              startId="Package\Задача потока данных\OLE DB Source.Outputs[Выход источника &quot;OLE DB&quot;]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
+<Objects
+  Version="8">
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Задача потока данных"
+          TopLeft="175,91" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Задача потока данных">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Задача потока данных\New CSV output"
+          TopLeft="241,199" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Задача потока данных\OLE DB Source"
+          TopLeft="242,109" />
+        <EdgeLayout
+          Id="Package\Задача потока данных.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="320.75,151">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Задача потока данных\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
